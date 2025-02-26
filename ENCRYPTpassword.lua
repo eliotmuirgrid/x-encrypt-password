@@ -6,7 +6,7 @@
 
 -- http://help.interfaceware.com/v6/encrypt-password-in-file
 
-encrypt = {}
+ENCRYPTpassword = {}
 
 local XmlSaveFragment=[[
 <config password='' salt=''/>
@@ -28,7 +28,7 @@ local function SaveFile(FileName, Content)
    F:close()
 end
 
-function encrypt.load(T)
+function ENCRYPTpassword.load(T)
    local Config = T.config
    local Key = T.key
    local Data=LoadFile(Config)
@@ -60,7 +60,7 @@ local XmlSaveFragment=[[
 <config password='' salt=''/>
 ]]
 
-function encrypt.save(T)
+function ENCRYPTpassword.save(T)
    local Config   = T.config
    local Password = T.password
    local Key      = T.key
@@ -78,6 +78,6 @@ function encrypt.save(T)
    SaveFile(Config, Content)
 end
 
-help.map{dir='encrypt', methods=encrypt}
+help.map{dir='ENCRYPT', methods=ENCRYPTpassword}
 
-return encrypt
+return ENCRYPTpassword
