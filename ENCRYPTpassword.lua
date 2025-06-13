@@ -64,7 +64,7 @@ function ENCRYPTpassword.save(T)
    local Config   = T.config
    local Password = T.password
    local Key      = T.key
-   local Salt     = util.guid(128)
+   local Salt     = util.generateGUID(128)
    local TotalKey = filter.base64.enc(crypto.digest{data=Key .. Salt,algorithm='SHA512'}):sub(1,32)
    local X        = xml.parse{data=XmlSaveFragment}
    
